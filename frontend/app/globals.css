@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/*
+ * InfraPulse design tokens — "precision ops" theme, warm neutral variant.
+ *
+ * Pure neutral (blue-free) near-black surfaces with hairline borders.
+ * Color is reserved for meaning: one lime accent for identity/interaction,
+ * warm chart hues, and status colors that only appear when something
+ * needs attention. Change the values here to re-skin the entire app.
+ */
+:root {
+  /* Base surfaces (neutral, no blue cast) */
+  --background: #0c0c0d; /* page background */
+  --surface: #131314; /* panels */
+  --surface-hover: #19191b; /* hover state */
+  --overlay: #0c0c0df2; /* mobile sidebar overlay */
+
+  /* Lines and text (warm grays) */
+  --border: #232325; /* hairline dividers */
+  --border-strong: #2f2f31; /* emphasized lines, chart crosshair */
+  --foreground: #e8e6e3; /* primary text, warm off-white */
+  --muted: #8f8b84; /* secondary text, warm gray */
+
+  /* Brand accent (signal lime) */
+  --accent: #a3e635;
+
+  /* Status colors */
+  --success: #4caf6e;
+  --warning: #d9a53f;
+  --danger: #e05d51;
+  --info: #62b6a8;
+
+  /* Chart series (warm, distinct hues) */
+  --chart-lime: #a3e635; /* CPU */
+  --chart-amber: #d9b457; /* memory */
+  --chart-terracotta: #c97b4f; /* disk */
+  --chart-green: #56a877; /* network in */
+  --chart-sand: #d8c58f; /* network out */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-overlay: var(--overlay);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-chart-lime: var(--chart-lime);
+  --color-chart-amber: var(--chart-amber);
+  --color-chart-terracotta: var(--chart-terracotta);
+  --color-chart-green: var(--chart-green);
+  --color-chart-sand: var(--chart-sand);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04";
+}
+
+/* Thin, dark scrollbars to match the theme */
+* {
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+}
